@@ -75,8 +75,14 @@
 
 8. Выложил роли в репозитории. Ссылки на репозитории ролей:
 
-#### Ссылка на Vector-role [Vector-role](https://github.com/Qshar1408/vector-role)
-#### Ссылка на lighthouse-role [Lighthouse-role](https://github.com/Qshar1408/lighthouse-role)
+#### Ссылка на Vector-role: [Vector-role](https://github.com/Qshar1408/vector-role)
+#### Ссылка на lighthouse-role: [Lighthouse-role](https://github.com/Qshar1408/lighthouse-role)
+
+9. Изменил playbook на использование roles.
+
+10. Выложил playbook в репозиторий. Ссылка на playbook:
+
+#### Ссылка на playbook: [playbook](https://github.com/Qshar1408/ans_08_04/tree/main/playbook)
 
 ### Как оформить решение задания
 
