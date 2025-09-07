@@ -75,7 +75,8 @@
 
 8. Выложил роли в репозитории. Ссылки на репозитории ролей:
 
-#### [Vector-role](https://github.com/Qshar1408/vector-role)
+#### Ссылка на Vector-role [Vector-role](https://github.com/Qshar1408/vector-role)
+#### Ссылка на lighthouse-role [Lighthouse-role](https://github.com/Qshar1408/lighthouse-role)
 
 ### Как оформить решение задания
 
