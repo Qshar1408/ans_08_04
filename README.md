@@ -41,6 +41,42 @@
 
 ---
 
+### Решение:
+
+1. В старом playbook создал файл requirements.yml с указанным содержимым:
+
+```yaml
+   ---
+     - src: git@github.com:AlexeySetevoi/ansible-clickhouse.git
+       scm: git
+       version: "1.13"
+       name: clickhouse 
+   ```
+
+2. Скачал роль с помощью ansible-galaxy, появилась директория roles с субдиректорией clickhouse, в которой находится playbook для установки роли clickhouse.
+
+![ans_08_04](https://github.com/Qshar1408/ans_08_04/blob/main/img/ans_08_04_001.png)
+
+![ans_08_04](https://github.com/Qshar1408/ans_08_04/blob/main/img/ans_08_04_002.png)
+
+3. С помощью ansible-galaxy role init vector-role создал роль vector-role.
+
+![ans_08_04](https://github.com/Qshar1408/ans_08_04/blob/main/img/ans_08_04_003.png)
+
+4. Заполнил новую роль, разнес переменные по соответствующим директориям.
+
+5. Перенес шаблоны конфигов в templates роли.
+
+6. Сделал описание для созданных ролей в файлах README.md.
+
+7. Повторил все шаги для роли lighthouse-role.
+
+![ans_08_04](https://github.com/Qshar1408/ans_08_04/blob/main/img/ans_08_04_004.png)
+
+8. Выложил роли в репозитории. Ссылки на репозитории ролей:
+
+#### [Vector-role](https://github.com/Qshar1408/vector-role)
+
 ### Как оформить решение задания
 
 Выполненное домашнее задание пришлите в виде ссылки на .md-файл в вашем репозитории.
