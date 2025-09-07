@@ -1,0 +1,36 @@
+---
+- block:
+
+    - name: Get clickhouse
+      ansible.builtin.get_url:
+        url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.noarch.rpm"
+        dest: "/tmp/{{ item }}-{{ clickhouse_version }}.rpm"
+        mode: '0644'
+      with_items: "{{ clickhouse_packages }}"
+      check_mode: false
+  rescue:
+    - name: Get clickhouse distrib
+      ansible.builtin.get_url:
+        url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
+        dest: "/tmp/clickhouse-common-static-{{ clickhouse_version }}.rpm"
+        mode: '0644'
+      check_mode: false
+    - name: Install clickhouse packages
+      become: true
+      ansible.builtin.yum:
+        name:
+        - /tmp/clickhouse-common-static-{{ clickhouse_version }}.rpm
+        - /tmp/clickhouse-client-{{ clickhouse_version }}.rpm
+        - /tmp/clickhouse-server-{{ clickhouse_version }}.rpm
+        notify: Start clickhouse service
+    - name: Pause 20 sec
+      ansible.builtin.pause:
+        seconds: 20
+    - name: Flush handlers
+      ansible.builtin.meta: flush_handlers
+    - name: Create database
+      ansible.builtin.command: "clickhouse-client -q 'create database logs;'"
+      register: create_db
+      failed_when: create_db.rc != 0 and create_db.rc !=82
+      changed_when: create_db.rc == 0
+  tags: clickhouse
